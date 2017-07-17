@@ -21,7 +21,12 @@
                     Book
                 </label>
                 <div class="col-sm-6">
-                    <input type="text" name="item_name" id="book-name" class="form-control" />
+                    <input
+                        type="text"
+                        name="item_name"
+                        id="book-name"
+                        class="form-control"
+                    />
                 </div>
             </div>
             <div class="form-group">
@@ -32,6 +37,38 @@
                 </div>
             </div>
         </form>
+        @if(count($books) > 0)
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            現在の本
+        </div>
+        <div class="panel-body">
+            <table class="table table-striped task-table">
+                <!-- テーブルヘッダ -->
+                <thead>
+                    <th>本一覧</th>
+                    <th>&nbsp;</th>
+                </thead>
+                <!-- テーブル本体 -->
+                <tbody>
+                    @foreach($books as $book)
+                        <tr>
+                            <!-- 本タイトル -->
+                            <td class="table-text">
+                                <div>{{ $book->item_name }}</div>
+                            </td>
+                            
+                            <!-- 本: 削除ボタン -->
+                            <td>
+                                
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+@endif
     </div>
     
     <!-- Book: 既に登録されている本のリスト -->
